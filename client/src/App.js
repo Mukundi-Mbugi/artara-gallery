@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Artists from "./components/Artists/Artists";
 
 import { useEffect, useState } from "react";
+import Dashboard from "./components/Dashboard/Dashboard";
 // import CreateItem from "./components/CreateItem/CreateItem";
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
           <Route path="Signup" element={<Signup onLogin={setArtist} />} />
         </Routes>
       </BrowserRouter>
-      {/* <Footer /> */}
+      <Dashboard setArtist={setArtist} />
     </div>
   );
 }

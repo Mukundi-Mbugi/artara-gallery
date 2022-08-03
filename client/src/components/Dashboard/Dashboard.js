@@ -6,10 +6,12 @@ import Footer from "../Footer/Footer";
 
 function Dashboard() {
 
-  function handleLogout(){
-    fetch(`http://localhost:3000/logout`, {
-      method: "DELETE",
-    })
+  function handleLogout({setArtist}){
+    fetch("/logout", { method: "DELETE" }).then((r) => {
+      if (r.ok) {
+        setArtist(null);
+      }
+    });
   }
   return (
     <>
