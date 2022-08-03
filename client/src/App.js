@@ -10,7 +10,16 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [images, setImages] = useState([]);
-  
+  const [artist, setArtist] = useState(null);
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setArtist(user));
+      }
+    });
+  }, []);
 
  
   useEffect(() => {
@@ -25,8 +34,8 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home images={images}/>} />
           <Route path="Artists" element={<Artists />} />
-          <Route path="Exhibitions" element={<Exhibitions />} />
-          <Route path="Signup" element={<Signup />} />
+          <Route path="Exhibitions" element={<Exhibitions artist={artist} />} />
+          <Route path="Signup" element={<Signup onLogin={setArtist} />} />
         </Routes>
       </BrowserRouter>
       {/* <Footer /> */}
