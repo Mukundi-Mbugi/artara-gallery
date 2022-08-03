@@ -14,7 +14,7 @@ function App() {
 
  
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/albums/1/photos")
+    fetch("/index")
       .then((res) => res.json())
       .then((data) => setImages(data));
   }, []);
