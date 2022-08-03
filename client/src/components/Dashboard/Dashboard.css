@@ -1,0 +1,40 @@
+#avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: solid 1px 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.dash button{
+    font-family: 'Poppins', sans-serif;
+    background-color: none;
+    padding: 3px 10px;
+    color: rgb(0, 136, 255);
+    border: solid 1px rgb(49, 128, 239);
+    border-radius: 4px;
+}
+.row button:hover{
+    background-color: rgb(0, 136, 255);
+    color: white;
+    cursor: pointer;
+}
+.log{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    
+}
+#logout-btn{
+    padding: 3px 10px;
+    font-family: 'Poppins', sans-serif;
+}
+#logout-btn:hover{
+    border: none;
+    cursor: pointer;
+}

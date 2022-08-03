@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Home from "./components/Home/Home";
+import Exhibitions from "./components/Exhibitions/Exhibitions";
+import Signup from "./components/Signup/Signup";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Artists from "./components/Artists/Artists";
+
+import { useEffect, useState } from "react";
+// import CreateItem from "./components/CreateItem/CreateItem";
 
 function App() {
+  const [images, setImages] = useState([]);
+  
+
+ 
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/albums/1/photos")
+      .then((res) => res.json())
+      .then((data) => setImages(data));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<Home images={images}/>} />
+          <Route path="Artists" element={<Artists />} />
+          <Route path="Exhibitions" element={<Exhibitions />} />
+          <Route path="Signup" element={<Signup />} />
+        </Routes>
+      </BrowserRouter>
+      {/* <Footer /> */}
     </div>
   );
 }

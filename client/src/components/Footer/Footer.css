@@ -1,0 +1,26 @@
+#footer-icon{
+    height: 6vh;
+    width: 6vh;
+}
+.row{
+
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}
+footer{
+    margin-top: 20px;
+
+}
+.footer-social ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+p{
+    font-size: 20px;
+}
