@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./CreateItem.css";
 
-function CreateItem({ artist, setShowForm }) {
+function CreateItem({ artist, setShowForm, onCreateArt }) {
   const [title, setTitle] = useState("");
   const [image_url, setImage_url] = useState("");
   const [description, setDescription] = useState("");
@@ -22,16 +22,19 @@ function CreateItem({ artist, setShowForm }) {
       body: JSON.stringify({
         title,
         image_url,
-        description,
-        artist_id: artist.id
+        description
       }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
+        r.json().then((data) => {
+          onCreateArt(data);
+          setShowForm(false);
+        });        
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
-    }).then(() => setShowForm(false));
+    })
   }
   return (
     <div>

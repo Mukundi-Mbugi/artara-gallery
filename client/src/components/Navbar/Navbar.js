@@ -10,27 +10,27 @@ function Navbar() {
       <nav className="nav">
         <div className="nav-bar-item">
           <div className="logo-div">
-            <a href="/">
+            <Link to="/">
               <img src={logo} alt="logo" id="logo" />
-            </a>
+            </Link>
           </div>
           <div className="nav-links">
             <ul>
               <li>
-                <a href="/">gallery</a>
+                <Link to="/">gallery</Link>
               </li>
               <li>
-                <a href="/Artists">Artists</a>
+                <Link to="/Artists">Artists</Link>
               </li>
               <li>
-                <a href="/Exhibitions">Exhibitions</a>
+                <Link to="/Exhibitions">Exhibitions</Link>
               </li>
             </ul>
           </div>
           <div className="signup">
-            <a href="/Signup">
+            <Link to="/Signup">
               <img src={sign} alt="Signup" />
-            </a>
+            </Link>
           </div>
         </div>
       </nav>

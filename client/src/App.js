@@ -32,11 +32,11 @@ function App() {
   }, []);
 
 
-  // function handleCreateArt(updatedArts) {
-  //   console.log(updatedArts);
-  //   const updatedBlogObj = [...arts, updatedArts];
-  //   setArts(updatedBlogObj);
-  // }
+  function handleCreateArt(updatedArts) {
+    console.log(updatedArts);
+    const updatedArtObj = [...arts, updatedArts];
+    setArts(updatedArtObj);
+  }
 
   function handleDeleteArt(id) {
     const updatedArts = arts.filter((art) => art.id !== id);
@@ -69,7 +69,7 @@ function App() {
           <Route path="Dashboard" element={<Dashboard 
           artist={artist}
           arts={arts} 
-          // onCreateArt={handleCreateArt}
+          onCreateArt={handleCreateArt}
           onDeleteArt={handleDeleteArt}
           onUpdateArt={handleUpdateArt}
            />} />
