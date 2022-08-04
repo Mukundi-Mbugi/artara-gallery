@@ -24,9 +24,9 @@ function App() {
 
  
   useEffect(() => {
-    fetch("/index")
+    fetch("/items")
       .then((res) => res.json())
-      .then((data) => setImages(data));
+      .then((data) => console.log(data));
   }, []);
 
   return (

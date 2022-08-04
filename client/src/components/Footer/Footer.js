@@ -19,13 +19,13 @@ function Footer() {
             <div className="footer-social">
                 <ul>
                     <li>
-                        <a href="https://linkedin.com/" target="_blank"><img src={linkedin} alt="linkedin" id="footer-icon" /></a>
+                        <a href="https://linkedin.com/" target="_blank" rel="noreferrer"><img src={linkedin} alt="linkedin" id="footer-icon" /></a>
                     </li>
                     <li>
-                        <a href="https://facebook.com/" target="_blank"><img src={facebook} alt="facebook" id="footer-icon" /></a>
+                        <a href="https://facebook.com/" target="_blank" rel="noreferrer"><img src={facebook} alt="facebook" id="footer-icon" /></a>
                     </li>
                     <li>
-                        <a href="https://twitter.com/" target="_blank"><img src={twitter} alt="twitter" id="footer-icon" /></a>
+                        <a href="https://twitter.com/" target="_blank" rel="noreferrer"><img src={twitter} alt="twitter" id="footer-icon" /></a>
                     </li>
                 </ul>
                 </div>
