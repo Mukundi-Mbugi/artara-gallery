@@ -7,6 +7,16 @@ class ItemsController < ApplicationController
         item = @current_artist.items.create!(item_params)
         render json: item, include: [:artist], status: :created
     end
+    def update
+        item = Item.find(params[:id])
+        @current_artist.items.update!(item_params)
+        render json: item, include: [:artist], status: :updated
+    end
+    def destroy
+        item = Item.find(params[:id])
+        item.destroy
+        head :no_content
+    end
 
     private
     def item_params
