@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :exhibitions, only: [:index]
   post '/signup', to: 'artists#create'
   get '/me', to: 'artists#show'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/items', to: 'items#index'
   post '/items', to: 'items#create'
+  update '/items', to: 'items#update'
   delete '/items', to: 'items#destroy'
   get '/artists', to: 'artists#index'
   
