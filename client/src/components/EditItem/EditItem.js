@@ -1,7 +1,18 @@
+import React from "react";
+import { useState } from "react";
+import UpdateForm from "../UpdateForm/UpdateForm";
+
+
 function EditItem({ art, onDeleteArt, onUpdateArt }) {
     const [showForm, setShowForm] = useState(false);
+    
+
+    function handleFormShow() {
+        setShowForm(!showForm);
+    }
+
     function handleDelete(){
-        fetch(`/edit/${art.id}`, {
+        fetch(`/items/${art.id}`, {
             method: "DELETE",
         }).then((r) => {
             if (r.ok) {
@@ -9,6 +20,8 @@ function EditItem({ art, onDeleteArt, onUpdateArt }) {
             }
         });
     }
+
+
   return (
     <div>
       <div className="card">
@@ -19,8 +32,11 @@ function EditItem({ art, onDeleteArt, onUpdateArt }) {
         </div>
         <div className="card-buttons">
           <i class="material-icons" onClick={handleDelete}>delete</i>
-          <i class="material-icons"onClick={handleEdit}>edit</i>
+          <i class="material-icons"onClick={handleFormShow}>edit</i>
         </div>
+        {showForm && (
+            <UpdateForm art={art} onUpdateArt={onUpdateArt} setShowForm={setShowForm} />
+        )}
       </div>
     </div>
   );

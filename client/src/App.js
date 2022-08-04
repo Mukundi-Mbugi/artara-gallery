@@ -38,20 +38,20 @@ function App() {
   //   setArts(updatedBlogObj);
   // }
 
-  // function handleDeleteArt(id) {
-  //   const updatedArts = arts.filter((art) => art.id !== id);
-  //   setArts(updatedArts);
-  // }
+  function handleDeleteArt(id) {
+    const updatedArts = arts.filter((art) => art.id !== id);
+    setArts(updatedArts);
+  }
 
-  // function handleUpdateArt(editedArts) {
-  //   const updatedArtObj = arts.map((blog) => {
-  //     if (blog.id === editedArts.id) {
-  //       return editedArts;
-  //     }
-  //     return blog;
-  //   });
-  //   setArts(updatedArtObj);
-  // }
+  function handleUpdateArt(editedArts) {
+    const updatedArtObj = arts.map((blog) => {
+      if (blog.id === editedArts.id) {
+        return editedArts;
+      }
+      return blog;
+    });
+    setArts(updatedArtObj);
+  }
 
   
 
@@ -70,8 +70,8 @@ function App() {
           artist={artist}
           arts={arts} 
           // onCreateArt={handleCreateArt}
-          // onDeleteArt={handleDeleteArt}
-          // onUpdateArt={handleUpdateArt}
+          onDeleteArt={handleDeleteArt}
+          onUpdateArt={handleUpdateArt}
            />} />
         </Routes>
       </BrowserRouter>

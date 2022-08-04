@@ -9,8 +9,8 @@ class ItemsController < ApplicationController
     end
     def update
         item = Item.find(params[:id])
-        @current_artist.items.update!(item_params)
-        render json: item, include: [:artist], status: :updated
+        item.update(item_params)
+        render json: item
     end
     def destroy
         item = Item.find(params[:id])
