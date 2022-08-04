@@ -2,16 +2,28 @@ import React from "react";
 import Navbar from "../Navbar/Navbar";
 import "./Home.css";
 import Item from "../Item/Item";
-// import { useState } from "react";
 import Footer from "../Footer/Footer";
+import { useEffect, useState } from "react";
 
-function Home({ images, setShowCard, showCard }) {
+function Home() {
+  const [arts, setArts] = useState([]);
+
+  useEffect(() => {
+    fetch("/items")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        setArts(data)});
+  }, []);
+
   return (
     <>
       <Navbar />
       <div className="container gallery-container">
-        {images.map((image) => (
-          <Item image={image} showCard={showCard} setShowCard={setShowCard} />
+        {arts.map((image) => (
+          <div key={image.id}>
+            <Item image={image}  />
+          </div>
         ))}
       </div>
       <Footer />

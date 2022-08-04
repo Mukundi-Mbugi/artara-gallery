@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
     end
    
     def create 
-        item = @current_artist.items.create!(item_params)
+        item = Item.create!(item_params)
         render json: item, include: [:artist], status: :created
     end
     def update
@@ -20,6 +20,6 @@ class ItemsController < ApplicationController
 
     private
     def item_params
-        params.permit(:title, :image_url, :description)
+        params.permit(:title, :image_url, :description, :artist_id)
     end
 end

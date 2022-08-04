@@ -20,6 +20,7 @@ function Item({ image }) {
             <div className="card-image">
               <h4>{image.title}</h4>
               <img src={image.url} alt="avatar" id="avatar" />
+              <p>{image.description}</p>
             </div>
           </div>
         </div>

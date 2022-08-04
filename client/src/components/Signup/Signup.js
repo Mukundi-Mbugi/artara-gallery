@@ -3,8 +3,9 @@ import { useState } from "react";
 import "./Signup.css";
 import "../../App.css";
 import logo from "./logo.png";
+import { useNavigate } from "react-router-dom";
 
-function Signup({ onLogin }) {
+function Signup(setArtist) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,6 +13,8 @@ function Signup({ onLogin }) {
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [hasAccount, setHasAccount] = useState(false);
+  const navigate = useNavigate();
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -25,7 +28,8 @@ function Signup({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((user) => console.log(user));
+        navigate("/Dashboard");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -49,7 +53,7 @@ function Signup({ onLogin }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((user) => console.log(user));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

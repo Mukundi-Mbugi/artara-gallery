@@ -1,20 +1,20 @@
 import React from "react";
 import { useState } from "react";
-import { useHistory } from "react-router";
 import "./CreateItem.css";
 
-function CreateItem() {
+function CreateItem({ artist, setShowForm }) {
   const [title, setTitle] = useState("");
   const [image_url, setImage_url] = useState("");
   const [description, setDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState("")
-  const history = useHistory();
+  
+  console.log(artist);
 
   function handleCreateItem(e){
     e.preventDefault();
     setIsLoading(true);
-    fetch("/recipes", {
+    fetch("/items", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -22,16 +22,16 @@ function CreateItem() {
       body: JSON.stringify({
         title,
         image_url,
-        description
+        description,
+        artist_id: artist.id
       }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        history.push("/");
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
-    });
+    }).then(() => setShowForm(false));
   }
   return (
     <div>
@@ -46,7 +46,7 @@ function CreateItem() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="image">Image</label>
+          <label htmlFor="image">Image Url</label>
           <input
             type="text"
             id="image"
@@ -65,11 +65,11 @@ function CreateItem() {
           <button type="submit" className="submit-create-btn" onClick={handleCreateItem}>
           {isLoading ? "Loading..." : "Submit Item"}
           </button>
-          <div>
+          {/* <div>
             {errors.map((err) => (
               <p key={err}>{err}</p>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
