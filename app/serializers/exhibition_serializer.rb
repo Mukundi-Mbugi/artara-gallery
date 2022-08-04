@@ -1,3 +1,3 @@
 class ExhibitionSerializer < ActiveModel::Serializer
-  attributes :id, :name, :venue, :date, :time
+  attributes :id, :title, :venue, :date, :time
 end

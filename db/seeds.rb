@@ -13,10 +13,10 @@ Item.create(title: 'Book', image_url: 'https://i.pinimg.com/originals/d9/1d/c4/d
 
 Item.create(title: 'The Type specimen book', image_url:  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSAp9ZANM1U5ssaNn8uGx-ohxWNv3-HtmEc1_0RtNcUHjG5FODJCiDzIM4bExlrT1_5YU&usqp=CAU', description:  'and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the', artist_id: rand(1..8))
 
-Exhibtion.create(title: "NAIBO art expo : Art for global impact", venue: "Franchaise’  arena", date: "August 6-10, 2022", time: "9am - 5pm daily" )
+Exhibition.create(title: "NAIBO art expo : Art for global impact", venue: "Franchaise’  arena", date: "August 6-10, 2022", time: "9am - 5pm daily" )
 
-Exhibtion.create(title: "kreateFEST expo : Art for global impact", venue: "Franchaise’  arena", date: "August 26-30, 2022", time: "5pm - 9pm daily" )
+Exhibition.create(title: "kreateFEST expo : Art for global impact", venue: "Franchaise’  arena", date: "August 26-30, 2022", time: "5pm - 9pm daily" )
 
-Exhibtion.create(title: "AFROFUTURISM expo : Art for global impac", venue: "Franchaise’  arena", date: "September 6-10, 2022", time: "8am - 6pm daily" )
+Exhibition.create(title: "AFROFUTURISM expo : Art for global impact", venue: "Franchaise’  arena", date: "September 6-10, 2022", time: "8am - 6pm daily" )
 
 puts "✅ Done seeding"
