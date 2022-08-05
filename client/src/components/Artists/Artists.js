@@ -22,7 +22,7 @@ function Artists() {
   return (
     <>
     <Navbar />
-    <div>
+    <div className='grid-container'>
       {artists.map(artist => (
         <div key={artist.id} className="artist-div">
           <h3>{artist.name}</h3>

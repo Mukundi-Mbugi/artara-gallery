@@ -1,3 +1,10 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
 .artist-div{
     display: flex;
     flex-wrap: wrap;
@@ -6,6 +13,11 @@
     justify-content: center;
     text-align: center;
     font-family: 'Poppins', sans-serif;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 10px;
+    
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .artist-div button{
     background-color: #8E4922;
