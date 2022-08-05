@@ -1,4 +1,5 @@
 import React from "react";
+import "./EditItem.css"
 import { useState } from "react";
 import UpdateForm from "../UpdateForm/UpdateForm";
 
@@ -24,10 +25,10 @@ function EditItem({ art, onDeleteArt, onUpdateArt }) {
 
   return (
     <div>
-      <div className="card">
+      <div className="card-container">
         <div className="card-image">
           <h4>{art.title}</h4>
-          <img src={art.url} alt="avatar" id="avatar" />
+          <img src={art.image_url} alt="avatar" id="avatar" />
           <p>{art.description}</p>
         </div>
         <div className="card-buttons">
