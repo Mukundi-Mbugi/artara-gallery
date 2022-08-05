@@ -2,8 +2,12 @@
 
 ## Description
 
-This project is scaffolded so that you can build a React frontend and Rails
-backend together, and easily deploy them to Heroku.
+This is an online gallery for artists to post their work. Artists can create accounts and upload their work.
+Users can view the work of the artists and contact them.
+
+## Live Link
+
+[]: # Link: https://artara.herokuapp.com/
 
 ## Requirements
 
