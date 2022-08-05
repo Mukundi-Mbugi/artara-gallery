@@ -8,10 +8,16 @@ import CreateItem from "../CreateItem/CreateItem";
 import EditItem from "../EditItem/EditItem";
 import { useNavigate } from "react-router-dom";
 
-function Dashboard({ artist, arts, onCreateArt, onDeleteArt, onUpdateArt, setUser }) {
+function Dashboard({
+  artist,
+  arts,
+  onCreateArt,
+  onDeleteArt,
+  onUpdateArt,
+  setUser,
+}) {
   const [showForm, setShowForm] = useState(false);
   const navigate = useNavigate();
- 
 
   function handleFormDisplay() {
     setShowForm(!showForm);
@@ -69,10 +75,12 @@ function Dashboard({ artist, arts, onCreateArt, onDeleteArt, onUpdateArt, setUse
             </div>
           </div>
           <div className="row">
-          <div className="col-md-12 log" logout-btn>
-            <button id="logout-btn" onClick={handleLogout}>logout</button>
+            <div className="col-md-12 log" logout-btn>
+              <button id="logout-btn" onClick={handleLogout}>
+                logout
+              </button>
+            </div>
           </div>
-        </div>
         </div>
       </div>
       <Footer />

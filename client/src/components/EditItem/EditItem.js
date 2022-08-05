@@ -1,27 +1,24 @@
 import React from "react";
-import "./EditItem.css"
+import "./EditItem.css";
 import { useState } from "react";
 import UpdateForm from "../UpdateForm/UpdateForm";
 
-
 function EditItem({ art, onDeleteArt, onUpdateArt }) {
-    const [showForm, setShowForm] = useState(false);
-    
+  const [showForm, setShowForm] = useState(false);
 
-    function handleFormShow() {
-        setShowForm(!showForm);
-    }
+  function handleFormShow() {
+    setShowForm(!showForm);
+  }
 
-    function handleDelete(){
-        fetch(`/items/${art.id}`, {
-            method: "DELETE",
-        }).then((r) => {
-            if (r.ok) {
-                onDeleteArt(art.id);
-            }
-        });
-    }
-
+  function handleDelete() {
+    fetch(`/items/${art.id}`, {
+      method: "DELETE",
+    }).then((r) => {
+      if (r.ok) {
+        onDeleteArt(art.id);
+      }
+    });
+  }
 
   return (
     <div>
@@ -32,11 +29,19 @@ function EditItem({ art, onDeleteArt, onUpdateArt }) {
           <p>{art.description}</p>
         </div>
         <div className="card-buttons">
-          <i class="material-icons" onClick={handleDelete}>delete</i>
-          <i class="material-icons"onClick={handleFormShow}>edit</i>
+          <i class="material-icons" onClick={handleDelete}>
+            delete
+          </i>
+          <i class="material-icons" onClick={handleFormShow}>
+            edit
+          </i>
         </div>
         {showForm && (
-            <UpdateForm art={art} onUpdateArt={onUpdateArt} setShowForm={setShowForm} />
+          <UpdateForm
+            art={art}
+            onUpdateArt={onUpdateArt}
+            setShowForm={setShowForm}
+          />
         )}
       </div>
     </div>

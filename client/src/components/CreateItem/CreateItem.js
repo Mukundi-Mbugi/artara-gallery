@@ -7,11 +7,12 @@ function CreateItem({ artist, setShowForm, onCreateArt }) {
   const [image_url, setImage_url] = useState("");
   const [description, setDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState("")
-  
-  console.log(artist);
+  const [errors, setErrors] = useState("");
 
-  function handleCreateItem(e){
+  console.log(artist);
+  console.log(errors);
+
+  function handleCreateItem(e) {
     e.preventDefault();
     setIsLoading(true);
     fetch("/items", {
@@ -22,7 +23,7 @@ function CreateItem({ artist, setShowForm, onCreateArt }) {
       body: JSON.stringify({
         title,
         image_url,
-        description
+        description,
       }),
     }).then((r) => {
       setIsLoading(false);
@@ -30,11 +31,11 @@ function CreateItem({ artist, setShowForm, onCreateArt }) {
         r.json().then((data) => {
           onCreateArt(data);
           setShowForm(false);
-        });        
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
-    })
+    });
   }
   return (
     <div>
@@ -65,8 +66,12 @@ function CreateItem({ artist, setShowForm, onCreateArt }) {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-          <button type="submit" className="submit-create-btn" onClick={handleCreateItem}>
-          {isLoading ? "Loading..." : "Submit Item"}
+          <button
+            type="submit"
+            className="submit-create-btn"
+            onClick={handleCreateItem}
+          >
+            {isLoading ? "Loading..." : "Submit Item"}
           </button>
           {/* <div>
             {errors.map((err) => (

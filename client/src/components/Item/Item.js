@@ -5,14 +5,14 @@ import "./Item.css";
 function Item({ image }) {
   const [showCard, setShowCard] = useState(false);
   return (
-    <div key={image.id} >
+    <div key={image.id}>
       <div className="image-card">
-      <img
-        src={image.image_url}
-        alt="avatar"
-        id="avatar"
-        onClick={() => setShowCard(!showCard)}
-      />
+        <img
+          src={image.image_url}
+          alt="avatar"
+          id="avatar"
+          onClick={() => setShowCard(!showCard)}
+        />
       </div>
       {showCard ? (
         <div>

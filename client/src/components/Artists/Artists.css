@@ -1,38 +1,37 @@
-.grid-container{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 10px;
-    padding: 10px;
- 
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
 }
-.artist-div{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    background-color: aliceblue;
-    border-radius: 10px;
-    padding: 10px;
-    
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+.artist-div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background-color: aliceblue;
+  border-radius: 10px;
+  padding: 10px;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-.artist-div button{
-    background-color: #8E4922;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    cursor: pointer;
+.artist-div button {
+  background-color: #8e4922;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  cursor: pointer;
 }
-.artist-div button:hover{
-    background-color: #FFCDB8;
-    color: #8E4922;
+.artist-div button:hover {
+  background-color: #ffcdb8;
+  color: #8e4922;
 }
-.artist-div a{
-    color: white;
+.artist-div a {
+  color: white;
 }

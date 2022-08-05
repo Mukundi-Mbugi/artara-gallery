@@ -12,8 +12,9 @@ function Home() {
     fetch("/items")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        setArts(data)});
+        console.log(data);
+        setArts(data);
+      });
   }, []);
 
   return (
@@ -22,7 +23,7 @@ function Home() {
       <div className="container gallery-container">
         {arts.map((image) => (
           <div key={image.id}>
-            <Item image={image}  />
+            <Item image={image} />
           </div>
         ))}
       </div>

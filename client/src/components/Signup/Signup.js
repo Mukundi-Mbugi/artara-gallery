@@ -5,7 +5,7 @@ import "../../App.css";
 import logo from "./logo.png";
 import { useNavigate } from "react-router-dom";
 
-function Signup({setUser}) {
+function Signup({ setUser }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -14,7 +14,6 @@ function Signup({setUser}) {
   const [isLoading, setIsLoading] = useState(false);
   const [hasAccount, setHasAccount] = useState(false);
   const navigate = useNavigate();
-
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -105,13 +104,17 @@ function Signup({setUser}) {
         </div>
         <div className="class-btn">
           <div className="error_div">
-            <div className="error">{errors.map((err) => (
-          <p key={err}>{err}</p>
-        ))}</div>
+            <div className="error">
+              {errors.map((err) => (
+                <p key={err}>{err}</p>
+              ))}
+            </div>
           </div>
           {hasAccount ? (
             <div className="sign-text">
-              <button onClick={handleLogin}>{isLoading ? "Loading..." : "Login"}</button>
+              <button onClick={handleLogin}>
+                {isLoading ? "Loading..." : "Login"}
+              </button>
               <p id="sign">
                 Don't have an account ?{" "}
                 <span
@@ -124,7 +127,9 @@ function Signup({setUser}) {
             </div>
           ) : (
             <div className="sign-text">
-              <button onClick={handleSignup}>{isLoading ? "Loading..." : "Sign Up"}</button>
+              <button onClick={handleSignup}>
+                {isLoading ? "Loading..." : "Sign Up"}
+              </button>
               <p>
                 Have an account ?{" "}
                 <span

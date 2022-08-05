@@ -18,8 +18,9 @@ function App() {
     fetch("/items")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        setArts(data)});
+        console.log(data);
+        setArts(data);
+      });
   }, []);
 
   // useEffect(() => {
@@ -30,7 +31,6 @@ function App() {
   //     }
   //   });
   // }, []);
-
 
   function handleCreateArt(updatedArts) {
     console.log(updatedArts);
@@ -53,30 +53,29 @@ function App() {
     setArts(updatedArtObj);
   }
 
-  
-
- 
-  
-
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<Home arts={arts}/>} />
+          <Route path="/" exact element={<Home arts={arts} />} />
           <Route path="Artists" element={<Artists />} />
           <Route path="Exhibitions" element={<Exhibitions artist={user} />} />
           <Route path="Signup" element={<Signup setUser={setUser} />} />
-          <Route path="Dashboard" element={<Dashboard 
-          artist={user}
-          arts={arts} 
-          setUser={setUser}
-          onCreateArt={handleCreateArt}
-          onDeleteArt={handleDeleteArt}
-          onUpdateArt={handleUpdateArt}
-           />} />
+          <Route
+            path="Dashboard"
+            element={
+              <Dashboard
+                artist={user}
+                arts={arts}
+                setUser={setUser}
+                onCreateArt={handleCreateArt}
+                onDeleteArt={handleDeleteArt}
+                onUpdateArt={handleUpdateArt}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
-   
     </div>
   );
 }
