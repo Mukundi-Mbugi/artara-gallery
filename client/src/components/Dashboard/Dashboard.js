@@ -7,18 +7,18 @@ import Footer from "../Footer/Footer";
 import CreateItem from "../CreateItem/CreateItem";
 import EditItem from "../EditItem/EditItem";
 
-function Dashboard({ artist, arts, onCreateArt, onDeleteArt, onUpdateArt }) {
+function Dashboard({ artist, arts, onCreateArt, onDeleteArt, onUpdateArt, setUser }) {
   const [showForm, setShowForm] = useState(false);
-  console.log([artist, arts]);
+ 
 
   function handleFormDisplay() {
     setShowForm(!showForm);
   }
 
-  function handleLogout({ setArtist }) {
+  function handleLogout() {
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
-        setArtist(null);
+        setUser(null);
       }
     });
   }
@@ -66,7 +66,7 @@ function Dashboard({ artist, arts, onCreateArt, onDeleteArt, onUpdateArt }) {
             </div>
           </div>
           <div className="row">
-          <div className="col-md-12 log">
+          <div className="col-md-12 log" logout-btn>
             <button id="logout-btn" onClick={handleLogout}>logout</button>
           </div>
         </div>

@@ -5,7 +5,7 @@ import "../../App.css";
 import logo from "./logo.png";
 import { useNavigate } from "react-router-dom";
 
-function Signup(setArtist) {
+function Signup({setUser}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +28,7 @@ function Signup(setArtist) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => console.log(user));
+        r.json().then((user) => setUser(user));
         navigate("/Dashboard");
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -53,7 +53,7 @@ function Signup(setArtist) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => console.log(user));
+        r.json().then((user) => setUser(user));
       } else {
         r.json().then((err) => setErrors(err.errors));
       }

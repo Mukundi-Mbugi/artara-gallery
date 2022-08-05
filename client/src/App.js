@@ -10,9 +10,9 @@ import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   const [arts, setArts] = useState([]);
-  const [artist, setArtist] = useState(null);
+  const [user, setUser] = useState(null);
 
-  console.log(artist);
+  console.log(user);
 
   useEffect(() => {
     fetch("/items")
@@ -22,14 +22,14 @@ function App() {
         setArts(data)});
   }, []);
 
-  useEffect(() => {
-    // auto-login
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setArtist(user));
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   // auto-login
+  //   fetch("/me").then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //   });
+  // }, []);
 
 
   function handleCreateArt(updatedArts) {
@@ -64,11 +64,12 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home arts={arts}/>} />
           <Route path="Artists" element={<Artists />} />
-          <Route path="Exhibitions" element={<Exhibitions artist={artist} />} />
-          <Route path="Signup" element={<Signup setArtist={setArtist} />} />
+          <Route path="Exhibitions" element={<Exhibitions artist={user} />} />
+          <Route path="Signup" element={<Signup setUser={setUser} />} />
           <Route path="Dashboard" element={<Dashboard 
-          artist={artist}
+          artist={user}
           arts={arts} 
+          setUser={setUser}
           onCreateArt={handleCreateArt}
           onDeleteArt={handleDeleteArt}
           onUpdateArt={handleUpdateArt}
