@@ -6,9 +6,11 @@ import { useState } from "react";
 import Footer from "../Footer/Footer";
 import CreateItem from "../CreateItem/CreateItem";
 import EditItem from "../EditItem/EditItem";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard({ artist, arts, onCreateArt, onDeleteArt, onUpdateArt, setUser }) {
   const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate();
  
 
   function handleFormDisplay() {
@@ -19,6 +21,7 @@ function Dashboard({ artist, arts, onCreateArt, onDeleteArt, onUpdateArt, setUse
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
         setUser(null);
+        navigate("/");
       }
     });
   }
